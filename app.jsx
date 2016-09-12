@@ -1,15 +1,24 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 class App extends React.Component {
-	render(){
-	    return (
-	        <div>
-                <h1>
-                    Hello World!
-                </h1>
-            </div>
-        )
+    constructor(){
+        super();
+        this.state = {txt:"this is first state"}
     }
+    update(e){
+        this.setState({txt:e.target.value})
+    }
+	render()
+        {
+            return( <div>
+                    <input type ="text"
+                    onChange={this.update.bind(this)}/>
+                <h1>{this.state.txt}</h1>)
+
+                 </div>
+            )
+        }
 }
-export default App;
+export default App
